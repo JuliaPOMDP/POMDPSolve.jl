@@ -1,5 +1,7 @@
 using POMDPSolve
 using Base.Test
 
-# write your own tests here
-@test 1 == 1
+solver = POMDPSolveSolver()
+pomdp = POMDPSolveFile(Pkg.dir("POMDPSolve", "test", "tiger.pomdp"))
+policy = POMDPSolvePolicy("mypolicy.policy")
+solve(solver, pomdp, policy)
