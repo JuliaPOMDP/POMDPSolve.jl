@@ -20,11 +20,12 @@ function solve(solver::POMDPSolveSolver, pomdp::POMDPSolveFile, policy::POMDPSol
 	policy_fileprefix = splitext(policy.filename)[1]
 
 	if isempty(solver.options)
-		run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp.filename)`) # -o $(policy_fileprefix)`)
+		run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp.filename) -o $(policy_fileprefix)`)
     else
         options_list = _get_options_list(solver.options)
         run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp.filename) -o $(policy_fileprefix) $options_list`)
     end
 
-    # policy.alphas = POMDPAlphas(policy_fileprefix * ".alpha")
+    alpha_vectors, alpha_actions = read_alpha(policy_fileprefix * ".alpha")
+    policy.alphas = POMDPAlphas(alpha_vectors, alpha_actions)
 end
