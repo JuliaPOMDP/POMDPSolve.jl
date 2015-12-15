@@ -3,7 +3,7 @@ module POMDPSolve
 using POMDPs
 using POMDPFiles
 
-import POMDPs: POMDP, Solver, Policy, action, value, solve, simulate
+import POMDPs: POMDP, Solver, Policy, action, value, solve
 
 export
 	POMDPSolveSolver,
@@ -11,8 +11,6 @@ export
 	POMDPSolvePolicy,
 
 	solve,
-	simulate,
-	evaluate,
 	action,
 	value,
 	alphas
