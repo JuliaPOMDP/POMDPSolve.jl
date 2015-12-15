@@ -1,7 +1,7 @@
 # POMDP-Solve
 
 This is a Julia wrapper for the POMDP-Solve program, orginally developed at Brown University.
-his package uses the code available from the (pomdp-solve github page)[https://github.com/cmansley/pomdp-solve].
+his package uses the code available from the [pomdp-solve github page](https://github.com/cmansley/pomdp-solve).
 
 The pomdp-solve program solves partially observable Markov decision
 processes (POMDPs), taking a model specifical and outputting a value
@@ -21,7 +21,7 @@ policy = POMDPSolvePolicy("mypolicy.policy")
 solve(solver, pomdp, policy) # creates a .alpha and a .pd file; loads results into policy
 ```
 
-Note that you can generate `.pomdp` files using (POMDPFiles)[https://github.com/sisl/POMDPFiles.jl]
+Note that you can generate `.pomdp` files using [`POMDPFiles.jl`](https://github.com/sisl/POMDPFiles.jl)
 
 ```julia
 using POMDPFiles
