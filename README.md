@@ -21,6 +21,17 @@ policy = POMDPSolvePolicy("mypolicy.policy")
 solve(solver, pomdp, policy) # creates a .alpha and a .pd file; loads results into policy
 ```
 
+Note that you can generate `.pomdp` files using (`POMDPFiles.jl`)[https://github.com/sisl/POMDPFiles.jl]
+
+```julia
+using POMDPFiles
+using POMDPModels
+fout = open("tiger.pomdp")
+write(fout, TigerPOMDP())
+close(fout)
+pomdp = POMDPSolveFile("tiger.pomdp")
+```
+
 ## Parameters:
 
 The following parameters come from http://www.pomdp.org/code/cmd-line.html:
