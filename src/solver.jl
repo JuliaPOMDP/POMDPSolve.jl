@@ -8,7 +8,7 @@ type POMDPSolveSolver
 		stat_summary::Bool = false,                           # Whether to keep and print internal execution stats
 		memory_limit::Int = -1,                               # Set upper bound memory usage
 		time_limit::Int = -1,                                 # Set upper bound on execution time
-		terminal_values::Union{Void,AbstractString},          # Sets the terminal value function (starting point.)
+		terminal_values::Union{Void,AbstractString}=nothing,  # Sets the terminal value function (starting point.)
 		horizon::Int = -1,                                    # Sets the number of iterations of value iteration
 		discount::Float64 = NaN,                              # Set the discount fact to use in value iteration
 		stop_criteria::Symbol = :default,                     # Sets the value iteration stopping criteria
