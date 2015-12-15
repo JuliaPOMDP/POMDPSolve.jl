@@ -21,7 +21,7 @@ policy = POMDPSolvePolicy("mypolicy.policy")
 solve(solver, pomdp, policy) # creates a .alpha and a .pd file; loads results into policy
 ```
 
-Note that you can generate `.pomdp` files using (POMDPFiles.jl)[https://github.com/sisl/POMDPFiles.jl]
+Note that you can generate `.pomdp` files using (POMDPFiles)[https://github.com/sisl/POMDPFiles.jl]
 
 ```julia
 using POMDPFiles
