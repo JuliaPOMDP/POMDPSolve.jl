@@ -8,7 +8,7 @@ processes (POMDPs), taking a model specifical and outputting a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
-## Get It:
+## Git It:
 
 `Pkg.clone("https://github.com/sisl/POMDPSolve.jl")`
 
