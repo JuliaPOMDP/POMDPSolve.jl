@@ -9,7 +9,6 @@
 
 	println("CONFIGURE");    tic(); run(`./configure`); toc()
 	println("MAKE");         tic(); run(`make`); toc()
-	println("MAKE INSTALL"); tic(); run(`sudo make install`); toc()
 
 	cd(Pkg.dir("POMDPSolve", "deps"))
 end
