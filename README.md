@@ -8,6 +8,9 @@ processes (POMDPs), taking a model specifical and outputting a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
+[![Build Status](https://travis-ci.org/sisl/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/sisl/POMDPSolve.jl)
+[![Coverage Status](https://coveralls.io/repos/sisl/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/sisl/POMDPSolve.jl)
+
 ## Git It:
 
 `Pkg.clone("https://github.com/sisl/POMDPSolve.jl")`
