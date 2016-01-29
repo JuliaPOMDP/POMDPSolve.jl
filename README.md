@@ -4,7 +4,7 @@ This is a Julia wrapper for the POMDP-Solve program, orginally developed at Brow
 This package uses the code available from the [pomdp-solve github page](https://github.com/cmansley/pomdp-solve).
 
 The pomdp-solve program solves partially observable Markov decision
-processes (POMDPs), taking a model specifical and outputting a value
+processes (POMDPs), taking a model specification and outputting a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
