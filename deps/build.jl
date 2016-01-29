@@ -1,7 +1,3 @@
-Pkg.clone("https://github.com/sisl/POMDPs.jl.git")
-Pkg.clone("https://github.com/sisl/POMDPToolbox.jl.git")
-Pkg.clone("https://github.com/sisl/POMDPFiles.jl.git")
-
 @unix_only begin
 
 	download("https://github.com/cmansley/pomdp-solve/archive/master.zip", "pomdp-solve.zip")
