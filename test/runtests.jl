@@ -6,6 +6,16 @@ pomdp = POMDPSolveFile(Pkg.dir("POMDPSolve", "test", "tiger.pomdp"))
 policy = POMDPSolvePolicy("mypolicy.policy")
 solve(solver, pomdp, policy)
 
+α = alphas(policy)
+
+# test _get_options_list
+options = Dict{AbstractString, Any}()
+options["A"] = "optionA"
+options["B"] = 2
+println(POMDPSolve._get_options_list(options))
+@test POMDPSolve._get_options_list(options) == ["--A", "optionA", "--B", "2"] ||
+      POMDPSolve._get_options_list(options) == ["--B", "2", "--A", "optionA"]
+
 # NOTe: following are arbitrarily set, values are probably not useful
 solver2 = POMDPSolveSolver(
     stdout = "out.txt",                 # Redirect programs stdout to a file of this name
@@ -13,6 +23,7 @@ solver2 = POMDPSolveSolver(
     stat_summary=true,                  # Whether to keep and print internal execution stats
     memory_limit = 10000,               # Set upper bound memory usage
     time_limit = 10000,                 # Set upper bound on execution time
+    terminal_values = "???",
     horizon = 10,                       # Sets the number of iterations of value iteration
     discount = 0.9,                     # Set the discount fact to use in value iteration
     stop_criteria = :weak,              # Sets the value iteration stopping criteria
@@ -29,12 +40,12 @@ solver2 = POMDPSolveSolver(
     prune_epsilon = 1e-6,               # Sets the precision level for the prune operations
     epsilon = 1e-6,                     # General solution precision level setting
     lp_epsilon = 1e-6,                  # Precision use in linear programs
-    proj_purge = :normal,               # Type of pruning to use for pre-iteration solving
-    q_purge = :normal,                  # Type of pruning to use for a post-iteration solving
+    proj_purge = :normal_prune,         # Type of pruning to use for pre-iteration solving
+    q_purge = :normal_prune,            # Type of pruning to use for a post-iteration solving
     witness_points = true,              # Whether to include 'witness points' in solving
     alg_rand = 10,                      # How many points to use to seed value function creation
     prune_rand = 10,                    # How many points to use to seed pruning process
-    method = :witness,                  # Selects the main solution algorithm to use
+    method = :normal_prune,             # Selects the main solution algorithm to use
     enum_purge = :epsilon_prune,        # The pruning method to use when using the 'enum' algorithm
     inc_prune = :generalized,           # The variation of the incremental pruning algorithm
     fg_type = :pairwise,                # Finite grid method means to generate belief points
@@ -44,7 +55,9 @@ solver2 = POMDPSolveSolver(
     mcgs_num_traj = 10,                 # Number of trajectories for Monte Carlo belief generation
     mcgs_traj_iter_count = 10,          # Times to iterate on a trajectory for MCGS method
     mcgs_prune_freq = 2,                # How frequently to prune during MCGS method
-    fg_purge = :pairwise,               # Finite grid method means to prune value functions
+    fg_purge = :normal_prune,           # Finite grid method means to prune value functions
     verbose = :witness,                 # Turns on extra debugging output for a module
     )
 solve(solver, pomdp, policy)
+
+policy2 = POMDPSolvePolicy("policy2.policy", POMDPFiles.POMDPAlphas(), pomdp)
