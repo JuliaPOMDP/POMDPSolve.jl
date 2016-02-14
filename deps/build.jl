@@ -27,6 +27,6 @@ end
 	println("MAKE");         tic(); run(`make`); toc()
 
 	cd(Pkg.dir("POMDPSolve", "deps"))
-
+    
     mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
