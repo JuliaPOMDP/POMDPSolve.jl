@@ -28,5 +28,5 @@ end
 
 	cd(Pkg.dir("POMDPSolve", "deps"))
 
-    mv("pomdp-solve-5.4", "pomdp-solve-master")
+    mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
