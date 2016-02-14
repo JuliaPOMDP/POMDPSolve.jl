@@ -26,5 +26,7 @@ end
 	println("CONFIGURE");    tic(); run(`./configure`); toc()
 	println("MAKE");         tic(); run(`make`); toc()
 
+    mv("pomdp-solve-5.4", "pomdp-solve-master")
+
 	cd(Pkg.dir("POMDPSolve", "deps"))
 end
