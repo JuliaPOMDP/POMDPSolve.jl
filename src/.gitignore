@@ -1,3 +1,4 @@
 deps/pomdp-solve-master
+deps/pomdp-solve-5.4
 *.alpha
 *.pg
