@@ -8,12 +8,12 @@ processes (POMDPs), taking a model specification and producing a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
-[![Build Status](https://travis-ci.org/sisl/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/sisl/POMDPSolve.jl)
-[![Coverage Status](https://coveralls.io/repos/sisl/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/sisl/POMDPSolve.jl)
+[![Build Status](https://travis-ci.org/JuliaPOMDP/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/sisl/POMDPSolve.jl)
+[![Coverage Status](https://coveralls.io/repos/JuliaPOMDP/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/sisl/POMDPSolve.jl)
 
 ## Git It:
 
-`Pkg.clone("https://github.com/sisl/POMDPSolve.jl")`
+`Pkg.clone("https://github.com/JuliaPOMDP/POMDPSolve.jl")`
 
 ## Usage:
 
@@ -24,7 +24,7 @@ policy = POMDPSolvePolicy("mypolicy.policy")
 solve(solver, pomdp, policy) # creates a .alpha and a .pd file; loads results into policy
 ```
 
-Note that you can generate `.pomdp` files using [`POMDPFiles.jl`](https://github.com/sisl/POMDPFiles.jl)
+Note that you can generate `.pomdp` files using [`POMDPFiles.jl`](https://github.com/JuliaPOMDP/POMDPFiles.jl)
 
 ```julia
 using POMDPFiles
