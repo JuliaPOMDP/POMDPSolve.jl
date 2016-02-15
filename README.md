@@ -8,8 +8,8 @@ processes (POMDPs), taking a model specification and producing a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
-[![Build Status](https://travis-ci.org/JuliaPOMDP/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/sisl/POMDPSolve.jl)
-[![Coverage Status](https://coveralls.io/repos/JuliaPOMDP/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/sisl/POMDPSolve.jl)
+[![Build Status](https://travis-ci.org/JuliaPOMDP/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/JuliaPOMDP/POMDPSolve.jl)
+[![Coverage Status](https://coveralls.io/repos/JuliaPOMDP/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/JuliaPOMDP/POMDPSolve.jl)
 
 ## Git It:
 
