@@ -1,6 +1,9 @@
+[![Build Status](https://travis-ci.org/sisl/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/sisl/POMDPSolve.jl)
+[![Coverage Status](https://coveralls.io/repos/sisl/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/sisl/POMDPSolve.jl)
+
 # POMDP-Solve
 
-This is a Julia wrapper for the POMDP-Solve program, orginally developed at Brown University.
+This is a Julia wrapper for the POMDP-Solve program, orginally developed at Brown University that uses the [POMDPs.jl](https://github.com/JuliaPOMDP/POMDPs.jl) interface.
 This package uses the code available from the [pomdp-solve github page](https://github.com/cmansley/pomdp-solve).
 
 The pomdp-solve program solves partially observable Markov decision
@@ -8,12 +11,13 @@ processes (POMDPs), taking a model specification and producing a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
-[![Build Status](https://travis-ci.org/sisl/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/sisl/POMDPSolve.jl)
-[![Coverage Status](https://coveralls.io/repos/sisl/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/sisl/POMDPSolve.jl)
-
 ## Git It:
+After installing [POMDPs.jl](https://github.com/JuliaPOMDP/POMDPs.jl) run the following commands in the Julia REPL:
 
-`Pkg.clone("https://github.com/sisl/POMDPSolve.jl")`
+```julia
+using POMDPs
+POMDPs.add("POMDPSolve")
+```
 
 ## Usage:
 
