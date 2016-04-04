@@ -16,6 +16,7 @@ end
 	println("MAKE");         tic(); run(`make`); toc()
 
 	cd(Pkg.dir("POMDPSolve", "deps"))
+    mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
 
 
@@ -32,7 +33,6 @@ end
 	println("MAKE");         tic(); run(`make`); toc()
 
 	cd(Pkg.dir("POMDPSolve", "deps"))
-
     mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
 
@@ -47,4 +47,5 @@ end
 	run(`unzip pomdp-solve-4.5-cygwin-x64.zip`)
 	rm("pomdp-solve-4.5-cygwin-x64.zip")
 	cd(Pkg.dir("POMDPSolve", "deps"))
+    mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
