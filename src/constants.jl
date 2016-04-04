@@ -1,4 +1,4 @@
-const EXEC_POMDP_SOLVE = Pkg.dir("POMDPSolve", "deps", "pomdp-solve-5.4", "src", "pomdp-solve")
+const EXEC_POMDP_SOLVE = Pkg.dir("POMDPSolve", "deps", "pomdp-solve-master", "src", "pomdp-solve")
 
 const STOP_CRITERIA = [:exact, :weak, :bellman]
 const VI_VARIATION = [:normal, :zlz, :adjustable_epsilon, :fixed_soln_size]
