@@ -3,7 +3,7 @@ type POMDPSolvePolicy <: Policy
 	filename::AbstractString
 	alphas::Alphas
 	pomdp::POMDP
-	action_map::Vector{Action}
+	action_map::Vector{Any}
 
 	POMDPSolvePolicy(filename::AbstractString, alphas::Alphas, pomdp::POMDP) = new(filename, alphas, pomdp)
 	function POMDPSolvePolicy(filename="out.policy")
