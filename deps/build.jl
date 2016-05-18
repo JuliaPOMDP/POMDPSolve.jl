@@ -1,8 +1,6 @@
-try
-	Pkg.installed("POMDPFiles")
-catch
-	Pkg.clone("https://github.com/JuliaPOMDP/POMDPFiles.jl.git")
-end
+using POMDPs
+
+POMDPs.add("POMDPFiles")
 
 @linux_only begin
 
