@@ -1,6 +1,8 @@
 using POMDPs
 
 POMDPs.add("POMDPFiles")
+POMDPs.add("POMDPModels")
+POMDPs.add("POMDPToolbox")
 
 @linux_only begin
 

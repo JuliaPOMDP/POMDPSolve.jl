@@ -2,6 +2,7 @@ module POMDPSolve
 
 using POMDPs
 using POMDPFiles
+using POMDPToolbox
 
 import POMDPs: POMDP, Solver, Policy, action, value, solve
 

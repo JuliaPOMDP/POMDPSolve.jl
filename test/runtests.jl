@@ -1,4 +1,5 @@
 using POMDPSolve
+using POMDPModels
 using Base.Test
 
 solver = POMDPSolveSolver()
@@ -61,3 +62,7 @@ solver2 = POMDPSolveSolver(
 solve(solver, pomdp, policy)
 
 policy2 = POMDPSolvePolicy("policy2.policy", POMDPFiles.POMDPAlphas(), pomdp)
+
+
+pomdp = TigerPOMDP()
+

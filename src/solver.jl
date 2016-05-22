@@ -186,3 +186,6 @@ function solve(solver::POMDPSolveSolver, pomdp::POMDPSolveFile, policy::POMDPSol
     alpha_vectors, alpha_actions = read_alpha(policy_fileprefix * ".alpha")
     policy.alphas = POMDPAlphas(alpha_vectors, alpha_actions)
 end
+
+
+create_policy(solver::POMDPSolveSolver, pomdp::Union{POMDP,POMDPSolveFile}, filename::AbstractString="out.policy") = POMDPPolicy(pomdp, filename)

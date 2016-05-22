@@ -19,9 +19,35 @@ type POMDPSolvePolicy <: Policy
 end
 
 "getter for action"
-function action(policy::POMDPSolvePolicy, b::Belief)
-    return action(policy.alphas, b)
+function action(policy::POMDPSolvePolicy, b::DiscreteBelief)
+    vectors = alphas(policy)
+    actions = action_idxs(policy)
+    utilities = prod(vectors, b)
+    a = actions[indmax(utilities)] + 1
+    return a
 end
+
+"""
+Returns the expected utility of a belief
+"""
+function value(policy::POMDPSolvePolicy, b::DiscreteBelief)
+    vectors = alphas(policy)
+    actions = action_idxs(policy)
+    utilities = prod(vectors, b)
+    v =  maximum(utilities)
+    return v
+end
+
+"""
+    updater(policy::SARSOPPolicy)
+Returns the belief updater (DiscreteUpdater) for SARSOP policies.
+"""
+updater(p::POMDPSolvePolicy) = DiscreteUpdater(p.pomdp)
+
+create_belief(bu::DiscreteUpdater) = DiscreteBelief(n_states(bu.pomdp))
+
 
 "getter for alpha-vectors"
 alphas(policy::POMDPSolvePolicy) = policy.alphas.alpha_vectors
+
+action_idxs(policy::POMDPSolvePolicy) = policy.alphas.alpha_actions
