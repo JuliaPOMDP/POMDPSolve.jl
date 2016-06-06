@@ -1,7 +1,7 @@
+# POMDP-Solve
+
 [![Build Status](https://travis-ci.org/JuliaPOMDP/POMDPSolve.jl.svg?branch=master)](https://travis-ci.org/JuliaPOMDP/POMDPSolve.jl)
 [![Coverage Status](https://coveralls.io/repos/JuliaPOMDP/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/JuliaPOMDP/POMDPSolve.jl)
-
-# POMDP-Solve
 
 This is a Julia wrapper for the POMDP-Solve program, orginally developed at Brown University that uses the [POMDPs.jl](https://github.com/JuliaPOMDP/POMDPs.jl) interface.
 This package uses the code available from Tony Cassandra's [pomdp.org page](http://www.pomdp.org/code/index.html).
