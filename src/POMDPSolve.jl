@@ -21,5 +21,6 @@ include("file.jl")
 include("utils.jl")
 include("policy.jl")
 include("solver.jl")
+include("require.jl")
 
 end # module
