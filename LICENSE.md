@@ -20,3 +20,10 @@ The POMDPSolve.jl package is licensed under the MIT "Expat" License:
 > CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 > TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 > SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+POMDPSolve.jl uses Tony Cassandra's pomdp-solve [library](http://www.pomdp.org/code/).
+
+pompd-solve library uses the following external libraries, which have their own licenses:
+
+- [lp_solve](https://sourceforge.net/projects/lpsolve/) Which has an unclear license (this is an older version for which the source is no longer available).
+- [laspack](http://www.netlib.org/utk/misc/sw_survey/urc/html/LASPack.1.html) Which uses a custom license.
