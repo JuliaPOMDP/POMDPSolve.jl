@@ -517,3 +517,12 @@ Each main module of pomdp-solve can be separately controlled as
 far as extra debugging output is concerned. This option can be used
 more than once to turn on debugging in more than one module.
 This input is technically repeatable in pomdp-solve.
+
+## License
+
+POMDPSolve.jl uses Tony Cassandra's pomdp-solve [library](http://www.pomdp.org/code/).
+
+pompd-solve library uses the following external libraries, which have their own licenses:
+
+- [lp_solve](https://sourceforge.net/projects/lpsolve/) Which has an unclear license (this is an older version for which the source is no longer available).
+- [laspack](http://www.netlib.org/utk/misc/sw_survey/urc/html/LASPack.1.html) Which uses a custom license.
