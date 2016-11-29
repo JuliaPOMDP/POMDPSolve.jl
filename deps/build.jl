@@ -4,8 +4,8 @@ POMDPs.add("POMDPFiles")
 POMDPs.add("POMDPModels")
 POMDPs.add("POMDPToolbox")
 
-@linux_only begin
 
+if is_linux()
 	download("http://www.pomdp.org/code/pomdp-solve-5.4.tar.gz", "pomdp-solve-5.4.tar.gz")
 	println("UNZIPPING"); tic(); run(`tar xvzf pomdp-solve-5.4.tar.gz`); toc()
 	rm("pomdp-solve-5.4.tar.gz")
@@ -20,8 +20,7 @@ POMDPs.add("POMDPToolbox")
 end
 
 
-@osx_only begin
-
+if is_apple()
 	download("http://www.pomdp.org/code/pomdp-solve-5.4.tar.gz", "pomdp-solve-5.4.tar.gz")
 
 	println("UNZIPPING"); tic(); run(`tar -zxf pomdp-solve-5.4.tar.gz`); toc()
@@ -36,7 +35,7 @@ end
     mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
 
-@windows_only begin
+if is_windows()
 	cd(Pkg.dir("POMDPSolve", "deps"))
 	run(`rm -rf pomdp-solve-5.4`)
 	run(`mkdir pomdp-solve-5.4`)
