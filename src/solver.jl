@@ -172,7 +172,7 @@ end
 generates a new optimal value function coefficients file (`.alpha`) and
 a the resulting policy graph file (`.pg`).
 """
-function solve(solver::POMDPSolveSolver, pomdp::POMDPSolveFile, policy::POMDPSolvePolicy)
+function solve(solver::POMDPSolveSolver, pomdp::POMDPSolveFile, policy::POMDPSolvePolicy=create_policy(solver, pomdp))
 
 	policy_fileprefix = splitext(policy.filename)[1]
 
@@ -186,6 +186,5 @@ function solve(solver::POMDPSolveSolver, pomdp::POMDPSolveFile, policy::POMDPSol
     alpha_vectors, alpha_actions = read_alpha(policy_fileprefix * ".alpha")
     policy.alphas = POMDPAlphas(alpha_vectors, alpha_actions)
 end
-
 
 create_policy(solver::POMDPSolveSolver, pomdp::Union{POMDP,POMDPSolveFile}, filename::AbstractString="out.policy") = POMDPPolicy(pomdp, filename)

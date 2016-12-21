@@ -40,11 +40,10 @@ end
 
 """
     updater(policy::SARSOPPolicy)
+
 Returns the belief updater (DiscreteUpdater) for SARSOP policies.
 """
 updater(p::POMDPSolvePolicy) = DiscreteUpdater(p.pomdp)
-
-create_belief(bu::DiscreteUpdater) = DiscreteBelief(n_states(bu.pomdp))
 
 
 "getter for alpha-vectors"
