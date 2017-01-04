@@ -1,4 +1,4 @@
-type POMDPSolveSolver
+type POMDPSolveSolver <: Solver
 
 	options::Dict{AbstractString, Any}
 
