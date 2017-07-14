@@ -1,4 +1,4 @@
-type POMDPSolveSolver <: Solver
+mutable struct POMDPSolveSolver <: Solver
 
 	options::Dict{AbstractString, Any}
 
