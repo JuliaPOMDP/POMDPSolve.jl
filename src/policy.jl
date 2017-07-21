@@ -1,5 +1,5 @@
 "Handles POMDPs"
-type POMDPSolvePolicy <: Policy
+mutable struct POMDPSolvePolicy <: Policy
 	filename::AbstractString
 	alphas::Alphas
 	pomdp::POMDP

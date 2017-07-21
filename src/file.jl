@@ -1,4 +1,5 @@
-type POMDPSolveFile <: POMDP
+#TODO types S, A and O are not properly defined
+mutable struct POMDPSolveFile <: POMDP{Any, Any, Any}
 	filename::AbstractString
 
 	function POMDPSolveFile(filename::AbstractString)
