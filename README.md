@@ -33,7 +33,7 @@ Note that you can generate `.pomdp` files using [`POMDPFiles.jl`](https://github
 ```julia
 using POMDPFiles
 using POMDPModels
-fout = open("tiger.pomdp")
+fout = open("tiger.pomdp", "w")
 write(fout, TigerPOMDP())
 close(fout)
 pomdp = POMDPSolveFile("tiger.pomdp")
