@@ -1,0 +1,17 @@
+name = "POMDPSolve"
+uuid = "a575d7f4-a5df-53f5-8ba4-9d691c1ba8ff"
+
+[deps]
+POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+#POMDPModelTools = "ddee4e65-a780-5c57-ad17-2363fca24141"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+POMDPFiles = "9cf5b727-2e06-5671-8c87-8c6b0f729d5d"
+BeliefUpdaters = "449812bc-a0b5-11e8-3863-0db9323dc191"
+
+[extras]
+POMDPModels = "355abbd5-f08e-5560-ac9e-8b5f2592a0ca"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["POMDPModels", "Test"]
