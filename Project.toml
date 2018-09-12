@@ -1,13 +1,15 @@
 name = "POMDPSolve"
 uuid = "a575d7f4-a5df-53f5-8ba4-9d691c1ba8ff"
+repo = "https://github.com/JuliaPOMDP/POMDPSolve.jl"
+version = "0.1.0"
 
 [deps]
 POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
-#POMDPModelTools = "ddee4e65-a780-5c57-ad17-2363fca24141"
+POMDPModelTools = "08074719-1b2a-587c-a292-00f91cc44415"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 POMDPFiles = "9cf5b727-2e06-5671-8c87-8c6b0f729d5d"
-BeliefUpdaters = "449812bc-a0b5-11e8-3863-0db9323dc191"
+BeliefUpdaters = "8bb6e9a1-7d73-552c-a44a-e5dc5634aac4"
 
 [extras]
 POMDPModels = "355abbd5-f08e-5560-ac9e-8b5f2592a0ca"
