@@ -16,7 +16,7 @@ if Sys.islinux()
     println("MAKE");          run(`make`)
 
     cd(@__DIR__)
-    mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
+    mv("pomdp-solve-5.4", "pomdp-solve-master", force=true)
 end
 
 
@@ -32,7 +32,7 @@ if Sys.isapple()
     println("MAKE");          run(`make`)
 
     cd(@__DIR__)
-    mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
+    mv("pomdp-solve-5.4", "pomdp-solve-master", force=true)
 end
 
 if Sys.iswindows()
@@ -46,5 +46,5 @@ if Sys.iswindows()
     run(`unzip pomdp-solve-4.5-cygwin-x64.zip`)
     rm("pomdp-solve-4.5-cygwin-x64.zip")
     cd(@__DIR__)
-    mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
+    mv("pomdp-solve-5.4", "pomdp-solve-master", force=true)
 end
