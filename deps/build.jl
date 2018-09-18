@@ -15,7 +15,7 @@ if Sys.islinux()
     println("CONFIGURE");     run(`./configure`)
     println("MAKE");          run(`make`)
 
-    cd(Pkg.dir("POMDPSolve", "deps"))
+    cd(@__DIR__)
     mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
 
@@ -31,12 +31,12 @@ if Sys.isapple()
     println("CONFIGURE");     run(`./configure`)
     println("MAKE");          run(`make`)
 
-    cd(Pkg.dir("POMDPSolve", "deps"))
+    cd(@__DIR__)
     mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
 
 if Sys.iswindows()
-    cd(Pkg.dir("POMDPSolve", "deps"))
+    cd(@__DIR__)
     run(`rm -rf pomdp-solve-5.4`)
     run(`mkdir pomdp-solve-5.4`)
     cd("pomdp-solve-5.4")
@@ -45,6 +45,6 @@ if Sys.iswindows()
     download("http://web.stanford.edu/group/sisl/resources/pomdp-solve-4.5-cygwin-x64.zip", "pomdp-solve-4.5-cygwin-x64.zip")
     run(`unzip pomdp-solve-4.5-cygwin-x64.zip`)
     rm("pomdp-solve-4.5-cygwin-x64.zip")
-    cd(Pkg.dir("POMDPSolve", "deps"))
+    cd(@__DIR__)
     mv("pomdp-solve-5.4", "pomdp-solve-master", remove_destination=true)
 end
