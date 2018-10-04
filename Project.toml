@@ -1,7 +1,7 @@
 name = "POMDPSolve"
 uuid = "a575d7f4-a5df-53f5-8ba4-9d691c1ba8ff"
 repo = "https://github.com/JuliaPOMDP/POMDPSolve.jl"
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
