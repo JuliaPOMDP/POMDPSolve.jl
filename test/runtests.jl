@@ -15,8 +15,8 @@ options = Dict{AbstractString, Any}()
 options["A"] = "optionA"
 options["B"] = 2
 println(POMDPSolve._get_options_list(options))
-@test POMDPSolve._get_options_list(options) == ["--A", "optionA", "--B", "2"] ||
-      POMDPSolve._get_options_list(options) == ["--B", "2", "--A", "optionA"]
+@test POMDPSolve._get_options_list(options) == ["-A", "optionA", "-B", "2"] ||
+      POMDPSolve._get_options_list(options) == ["-B", "2", "-A", "optionA"]
 
 # NOTe: following are arbitrarily set, values are probably not useful
 solver2 = POMDPSolveSolver(
