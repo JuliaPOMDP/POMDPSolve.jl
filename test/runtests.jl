@@ -1,9 +1,10 @@
 using POMDPSolve
 using POMDPModels
-using Base.Test
+using POMDPFiles
+using Test
 
 solver = POMDPSolveSolver()
-pomdp = POMDPSolveFile(Pkg.dir("POMDPSolve", "test", "tiger.pomdp"))
+pomdp = POMDPSolveFile(joinpath(dirname(pathof(POMDPSolve)), "..", "test", "tiger.pomdp"))
 policy = POMDPSolvePolicy("mypolicy.policy")
 solve(solver, pomdp, policy)
 

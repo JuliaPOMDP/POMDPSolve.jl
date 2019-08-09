@@ -3,12 +3,12 @@ mutable struct POMDPSolveSolver <: Solver
 	options::Dict{AbstractString, Any}
 
 	function POMDPSolveSolver(;
-		stdout::Union{Void,AbstractString} = nothing,         # Redirect programs stdout to a file of this name
-		rand_seed::Union{Void, Tuple{Int,Int,Int}} = nothing, # Set the random seed for program execution
+		stdout::Union{Nothing,AbstractString} = nothing,         # Redirect programs stdout to a file of this name
+		rand_seed::Union{Nothing, Tuple{Int,Int,Int}} = nothing, # Set the random seed for program execution
 		stat_summary::Bool = false,                           # Whether to keep and print internal execution stats
 		memory_limit::Int = -1,                               # Set upper bound memory usage
 		time_limit::Int = -1,                                 # Set upper bound on execution time
-		terminal_values::Union{Void,AbstractString}=nothing,  # Sets the terminal value function (starting point.)
+		terminal_values::Union{Nothing,AbstractString}=nothing,  # Sets the terminal value function (starting point.)
 		horizon::Int = -1,                                    # Sets the number of iterations of value iteration
 		discount::Float64 = NaN,                              # Set the discount fact to use in value iteration
 		stop_criteria::Symbol = :default,                     # Sets the value iteration stopping criteria
