@@ -168,23 +168,22 @@ mutable struct POMDPSolveSolver <: Solver
 	end
 end
 
-"""
-generates a new optimal value function coefficients file (`.alpha`) and
-a the resulting policy graph file (`.pg`).
-"""
-function solve(solver::POMDPSolveSolver, pomdp::POMDPSolveFile, policy::POMDPSolvePolicy=create_policy(solver, pomdp))
-
-	policy_fileprefix = splitext(policy.filename)[1]
-
-	if isempty(solver.options)
-		run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp.filename) -o $(policy_fileprefix)`)
-    else
-        options_list = _get_options_list(solver.options)
-        run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp.filename) -o $(policy_fileprefix) $options_list`)
+function POMDPs.solve(solver::POMDPSolveSolver, pomdp::POMDP)
+    fileprefix = tempname()
+    pomdp_filename = fileprefix*".pomdp"
+    open(pomdp_filename, "w") do f
+        write(f, pomdp)
     end
 
-    alpha_vectors, alpha_actions = read_alpha(policy_fileprefix * ".alpha")
-    policy.alphas = POMDPAlphas(alpha_vectors, alpha_actions)
-end
+	if isempty(solver.options)
+		run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp_filename) -o $(fileprefix)`)
+    else
+        options_list = _get_options_list(solver.options)
+        run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp_filename) -o $(fileprefix) $options_list`)
+    end
 
-create_policy(solver::POMDPSolveSolver, pomdp::Union{POMDP,POMDPSolveFile}, filename::AbstractString="out.policy") = POMDPPolicy(pomdp, filename)
+    alpha_vectors, alpha_actions = read_alpha(fileprefix * ".alpha")
+
+    oa = ordered_actions(pomdp)
+    return AlphaVectorPolicy(pomdp, alpha_vectors, oa[alpha_actions.+1])
+end

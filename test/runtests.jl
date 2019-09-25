@@ -1,14 +1,16 @@
 using POMDPSolve
+using POMDPs
 using POMDPModels
 using POMDPFiles
+using POMDPTesting
+using POMDPPolicies
 using Test
 
+pomdp = TigerPOMDP()
 solver = POMDPSolveSolver()
-pomdp = POMDPSolveFile(joinpath(dirname(pathof(POMDPSolve)), "..", "test", "tiger.pomdp"))
-policy = POMDPSolvePolicy("mypolicy.policy")
-solve(solver, pomdp, policy)
+policy = solve(solver, pomdp)
 
-α = alphas(policy)
+show(stdout, MIME("text/plain"), collect(alphapairs(policy)))
 
 # test _get_options_list
 options = Dict{AbstractString, Any}()
@@ -60,10 +62,5 @@ solver2 = POMDPSolveSolver(
     fg_purge = :normal_prune,           # Finite grid method means to prune value functions
     verbose = :witness,                 # Turns on extra debugging output for a module
     )
-solve(solver, pomdp, policy)
 
-policy2 = POMDPSolvePolicy("policy2.policy", POMDPFiles.POMDPAlphas(), pomdp)
-
-
-pomdp = TigerPOMDP()
-
+test_solver(solver, pomdp)
