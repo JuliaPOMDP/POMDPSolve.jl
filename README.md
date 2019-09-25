@@ -23,20 +23,7 @@ POMDPs.add("POMDPSolve")
 
 ```julia
 solver = POMDPSolveSolver()
-pomdp = POMDPSolveFile(Pkg.dir("POMDPSolve", "test", "tiger.pomdp"))
-policy = POMDPSolvePolicy("mypolicy.policy")
-solve(solver, pomdp, policy) # creates a .alpha and a .pd file; loads results into policy
-```
-
-Note that you can generate `.pomdp` files using [`POMDPFiles.jl`](https://github.com/JuliaPOMDP/POMDPFiles.jl)
-
-```julia
-using POMDPFiles
-using POMDPModels
-fout = open("tiger.pomdp", "w")
-write(fout, TigerPOMDP())
-close(fout)
-pomdp = POMDPSolveFile("tiger.pomdp")
+solve(solver, pomdp) # returns an AlphaVectorPolicy
 ```
 
 ## Parameters:
