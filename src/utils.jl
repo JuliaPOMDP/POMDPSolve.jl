@@ -4,9 +4,7 @@ function _get_options_list(options::Dict{AbstractString,Any})
     count = 0
     for (k,v) in options
         options_list[count+=1] = "-" * k
-        if !isempty(v)
-            options_list[count+=1] = string(v)
-        end
+        options_list[count+=1] = string(v)
     end
     options_list[1:count]
 end

@@ -127,7 +127,7 @@ mutable struct POMDPSolveSolver <: Solver
 		if prune_rand ≥ 0
 			options["prune_rand"] = prune_rand
 		end
-		if in(method, ALGORITHM)
+		if in(method, METHOD)
 			options["method"] = method
 		end
 		if in(enum_purge, ALGORITHM)
