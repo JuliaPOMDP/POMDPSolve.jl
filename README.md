@@ -11,17 +11,19 @@ processes (POMDPs), taking a model specification and producing a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
-## Git It:
+## Installation:
 After installing [POMDPs.jl](https://github.com/JuliaPOMDP/POMDPs.jl) run the following commands in the Julia REPL:
 
 ```julia
-using POMDPs
-POMDPs.add("POMDPSolve")
+] add POMDPSolve
 ```
 
-## Usage:
+## Example:
 
 ```julia
+using POMDPSolve
+using POMDPModels # this defines TigerPOMDP
+pomdp = TigerPOMDP()
 solver = POMDPSolveSolver()
 solve(solver, pomdp) # returns an AlphaVectorPolicy
 ```
@@ -36,7 +38,7 @@ stdout <filename>
     units   = filename
     default = STDOUT
 ```
-    
+
 The pomdp-solve program displays much status and progress
 information to stdout.  If you want to have this redirected to a file
 instead, provide the file name as this parameter.  Not specifying
