@@ -1,7 +1,7 @@
 name = "POMDPSolve"
 uuid = "a575d7f4-a5df-53f5-8ba4-9d691c1ba8ff"
 repo = "https://github.com/JuliaPOMDP/POMDPSolve.jl"
-version = "0.2.2"
+version = "0.2.3"
 
 [deps]
 BeliefUpdaters = "8bb6e9a1-7d73-552c-a44a-e5dc5634aac4"
