@@ -4,6 +4,8 @@ using POMDPModels
 using POMDPFiles
 using POMDPTesting
 using POMDPPolicies
+using POMDPSimulators: RolloutSimulator
+using POMDPModelTools: Deterministic
 using Test
 
 pomdp = TigerPOMDP()
@@ -64,3 +66,15 @@ solver2 = POMDPSolveSolver(
     )
 
 test_solver(solver, pomdp)
+
+@testset "rollout" begin
+    m = MiniHallway()
+
+    p = solve(solver, m)
+
+    sim = RolloutSimulator()
+    for s in states(m)
+        ret = simulate(sim, m, p, updater(p), Deterministic(s)) # only need to simulate once since MiniHallway is deterministic
+        @test_broken ret ≈ value(p, Deterministic(s))
+    end
+end
