@@ -14,7 +14,7 @@ Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 
 [compat]
 BeliefUpdaters = "0.1, 0.2"
-POMDPFiles = "0.1, 0.2"
+POMDPFiles = "0.2"
 POMDPModelTools = "0.2, 0.3"
 POMDPPolicies = "0.2, 0.3, 0.4"
 POMDPs = "0.9"
