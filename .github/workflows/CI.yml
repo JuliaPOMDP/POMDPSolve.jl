@@ -1,49 +1,74 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the workflow will run
+# Run on master, tags, or any pull request
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
- 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    branches: [master]
+    tags: ["*"]
+  pull_request:
+
 jobs:
-  test: 
+  # unit tests with coverage
+  test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
-    runs-on: ${{matrix.os}}
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         version:
-          - '1.8'
+          - "1.6" # Latest
         os:
-          - macOS-latest
-          - ubuntu-latest
+          - windows-latest
         arch:
           - x64
-  
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      # check out the project and install Julia
+      - uses: actions/checkout@v2
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
-      - uses: julia-actions/julia-buildpkg@latest
-      - uses: julia-actions/julia-runtest@latest
-      - uses: julia-actions/julia-processcoverage@v1
-      - uses: codecov/codecov-action@v3
 
+      # using a cache can speed up execution times
+      - uses: actions/cache@v2
+        env:
+          cache-name: cache-artifacts
+        with:
+          path: ~/.julia/artifacts
+          key: ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-${{ hashFiles('**/Project.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-
+            ${{ runner.os }}-${{ matrix.arch }}-test-
+            ${{ runner.os }}-${{ matrix.arch }}-
+            ${{ runner.os }}-
+      # build the dependencies, run the tests, and upload coverage results
+      # NOTE: instead of using "julia-buildpkg", manually run install.jl then build.
+      - uses: julia-actions/julia-buildpkg@latest
+      - run: |
+          git config --global user.name Tester
+          git config --global user.email te@st.er
+      - name: Run Tests
+        uses: julia-actions/julia-runtest@latest
+      - uses: julia-actions/julia-processcoverage@v1
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./lcov.info
+          flags: unittests
+          name: codecov-umbrella
   docs:
     name: Documentation
     runs-on: ubuntu-latest
     steps:
+    
       - uses: actions/checkout@v2
       - uses: julia-actions/setup-julia@v1
         with:
           version: '1'
+      - name: Install Julia dependencies
+        run: julia --color=yes --project=@. -e 'include("install.jl"); using Pkg; if VERSION >= v"1.1.0-rc1"; Pkg.build(verbose=true); else Pkg.build(); end'
+        shell: bash
+        env:
+          CI: true
       - run: |
           julia --project=docs -e '
             using Pkg
