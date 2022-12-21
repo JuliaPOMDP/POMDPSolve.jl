@@ -43,7 +43,7 @@ jobs:
             ${{ runner.os }}-
       # build the dependencies, run the tests, and upload coverage results
       # NOTE: instead of using "julia-buildpkg", manually run install.jl then build.
-      # - uses: julia-actions/julia-buildpkg@latest
+      - uses: julia-actions/julia-buildpkg@latest
       - run: |
           git config --global user.name Tester
           git config --global user.email te@st.er
