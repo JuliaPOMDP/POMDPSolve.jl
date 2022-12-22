@@ -41,8 +41,6 @@ jobs:
             ${{ runner.os }}-${{ matrix.arch }}-test-
             ${{ runner.os }}-${{ matrix.arch }}-
             ${{ runner.os }}-
-      # build the dependencies, run the tests, and upload coverage results
-      # NOTE: instead of using "julia-buildpkg", manually run install.jl then build.
       - uses: julia-actions/julia-buildpkg@latest
       - run: |
           git config --global user.name Tester
@@ -64,11 +62,6 @@ jobs:
       - uses: julia-actions/setup-julia@v1
         with:
           version: '1'
-      - name: Install Julia dependencies
-        run: julia --color=yes --project=@. -e 'include("install.jl"); using Pkg; if VERSION >= v"1.1.0-rc1"; Pkg.build(verbose=true); else Pkg.build(); end'
-        shell: bash
-        env:
-          CI: true
       - run: |
           julia --project=docs -e '
             using Pkg
