@@ -12,7 +12,7 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/JuliaPOMDP/POMDPs.jl",
+    repo="github.com/JuliaPOMDP/POMDPSolve.jl.git",
     devbranch = "master",
     devurl = "latest",
 )
