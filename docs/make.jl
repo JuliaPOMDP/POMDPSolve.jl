@@ -7,9 +7,7 @@ makedocs(;
     format=Documenter.HTML(),
     pages=[
         "Home" => "index.md",
-        "Profiling" => "profiling.md",
-        "Core Types and Methods" => "library.md",
-        "API Reference" => "reference.md",
+        "API Reference" => "reference.md"
     ],
 )
 
