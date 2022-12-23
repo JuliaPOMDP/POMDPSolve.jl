@@ -75,6 +75,6 @@ test_solver(solver, pomdp)
     sim = RolloutSimulator()
     for s in states(m)
         ret = simulate(sim, m, p, updater(p), Deterministic(s)) # only need to simulate once since MiniHallway is deterministic
-        @test_broken ret ≈ value(p, Deterministic(s))
+        @test ret ≈ value(p, Deterministic(s))
     end
 end
