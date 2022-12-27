@@ -1,4 +1,4 @@
-# POMDP-Solve
+# POMDPSolve.jl
 [![Build Status](https://github.com/JuliaPOMDP/POMDPSolve.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/JuliaPOMDP/POMDPSolve.jl)
 [![Coverage Status](https://codecov.io/gh/JuliaPOMDP/POMDPSolve.jl/badge.svg)](https://coveralls.io/r/JuliaPOMDP/POMDPSolve.jl)
 
