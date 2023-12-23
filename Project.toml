@@ -5,22 +5,24 @@ version = "0.2.3"
 
 [deps]
 POMDPFiles = "9cf5b727-2e06-5671-8c87-8c6b0f729d5d"
+POMDPSolve_jll = "7dc2201c-deb4-56f8-b3a0-2ab29a2c732a" # Need to update after registered
 POMDPTools = "7588e00f-9cae-40de-98dc-e0c70c48cdd7"
 POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
-Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Suppressor = "fd094767-a336-5f1f-9728-57cf17d0bbfb"
 
 [compat]
 POMDPFiles = "0.2"
+# Add compat for POMDPSolve_jll once registered
 POMDPTools = "0.1"
 POMDPs = "0.9"
+Suppressor = "0.2"
 julia = "1.6"
 
 [extras]
 NativeSARSOP = "a07c76ea-660d-4c9a-8028-2e6dbd212cb8"
 POMDPModels = "355abbd5-f08e-5560-ac9e-8b5f2592a0ca"
-Suppressor = "fd094767-a336-5f1f-9728-57cf17d0bbfb"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["POMDPModels", "NativeSARSOP", "Suppressor", "Test"]
+test = ["POMDPModels", "NativeSARSOP", "Test"]

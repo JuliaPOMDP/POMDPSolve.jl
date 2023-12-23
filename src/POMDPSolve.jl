@@ -12,6 +12,7 @@ using POMDPs
 using POMDPTools
 using POMDPFiles
 using Printf
+using Suppressor
 
 export
 	POMDPSolveSolver
