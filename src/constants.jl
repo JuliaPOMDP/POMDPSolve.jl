@@ -1,5 +1,3 @@
-const EXEC_POMDP_SOLVE = joinpath(dirname(pathof(POMDPSolve)), "..", "deps", "pomdp-solve-master", "src", "pomdp-solve")
-
 const STOP_CRITERIA = [:exact, :weak, :bellman]
 const VI_VARIATION = [:normal, :zlz, :adjustable_epsilon, :fixed_soln_size]
 const METHOD = [:enum, :twopass, :linsup, :witness, :incprune, :grid, :mcgs]
