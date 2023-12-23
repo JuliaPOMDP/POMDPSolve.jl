@@ -176,10 +176,10 @@ function POMDPs.solve(solver::POMDPSolveSolver, pomdp::POMDP)
     end
 
 	if isempty(solver.options)
-		run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp_filename) -o $(fileprefix)`)
+        run(`$(pomdpsolve()) -pomdp $(pomdp_filename) -o $(fileprefix)`)
     else
         options_list = _get_options_list(solver.options)
-        run(`$EXEC_POMDP_SOLVE -pomdp $(pomdp_filename) -o $(fileprefix) $options_list`)
+        run(`$(pomdpsolve()) -pomdp $(pomdp_filename) -o $(fileprefix) $options_list`)
     end
 
     alpha_vectors, alpha_actions = read_alpha(fileprefix * ".alpha")

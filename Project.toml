@@ -4,28 +4,23 @@ repo = "https://github.com/JuliaPOMDP/POMDPSolve.jl"
 version = "0.2.3"
 
 [deps]
-BeliefUpdaters = "8bb6e9a1-7d73-552c-a44a-e5dc5634aac4"
 POMDPFiles = "9cf5b727-2e06-5671-8c87-8c6b0f729d5d"
-POMDPModelTools = "08074719-1b2a-587c-a292-00f91cc44415"
-POMDPPolicies = "182e52fb-cfd0-5e46-8c26-fd0667c990f4"
+POMDPTools = "7588e00f-9cae-40de-98dc-e0c70c48cdd7"
 POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
-Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 
 [compat]
-BeliefUpdaters = "0.1, 0.2"
-POMDPFiles = "0.2.3"
-POMDPModelTools = "0.2, 0.3"
-POMDPPolicies = "0.2, 0.3, 0.4"
+POMDPFiles = "0.2"
+POMDPTools = "0.1"
 POMDPs = "0.9"
-Reexport = "0.2"
-julia = "1"
+julia = "1.6"
 
 [extras]
+NativeSARSOP = "a07c76ea-660d-4c9a-8028-2e6dbd212cb8"
 POMDPModels = "355abbd5-f08e-5560-ac9e-8b5f2592a0ca"
-POMDPSimulators = "e0d0a172-29c6-5d4e-96d0-f262df5d01fd"
-POMDPTesting = "92e6a534-49c2-5324-9027-86e3c861ab81"
+Suppressor = "fd094767-a336-5f1f-9728-57cf17d0bbfb"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["POMDPModels", "POMDPTesting", "POMDPSimulators", "Test"]
+test = ["POMDPModels", "NativeSARSOP", "Suppressor", "Test"]
