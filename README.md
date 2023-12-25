@@ -11,7 +11,7 @@ processes (POMDPs), taking a model specification and producing a value
 function and action policy.  It employs many different algorithms,
 some exact and some approximate.
 
-## Installation:
+## Installation
 You can use the Julia package manager to install POMDPSolve.jl:
 
 ```julia
@@ -19,8 +19,7 @@ using Pkg
 Pkg.add("POMDPSolve")
 ```
 
-## Example:
-
+## Example
 ```julia
 using POMDPSolve
 using POMDPModels # for TigerPOMDP
@@ -29,9 +28,8 @@ solver = POMDPSolveSolver()
 policy = solve(solver, pomdp) # returns an AlphaVectorPolicy
 ```
 
-## Parameters:
-
-Reference this package documentation for information on parameters.
+## Parameters
+Reference this package documentation for information on parameters and parameter options for the solver. If the information cannot be found there, please refer to the JuliaPOMDP fork of pomdp-solve or the original pomdp-solve documentation.
 
 ## POMDPSolve_jll
 The supporting [POMDPSolve_jll](https://github.com/JuliaBinaryWrappers/POMDPSolve_jll.jl) package was created using [BinaryBuilder.jl](https://github.com/JuliaPackaging/BinaryBuilder.jl). The [build_tarballs.jl](https://github.com/JuliaPackaging/Yggdrasil/blob/master/P/POMDPSolve/build_tarballs.jl) script can be found on [Yggdrasil](https://github.com/JuliaPackaging/Yggdrasil/), the community build tree. To update and build new binaries:
