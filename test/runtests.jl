@@ -15,13 +15,13 @@ using Test
         options = Dict{AbstractString, Any}()
         options["A"] = "optionA"
         options["B"] = 2
-        order1 = POMDPSolve._get_options_list(options) == ["-A", "optionA", "-B", "2"]
-        order2 = POMDPSolve._get_options_list(options) == ["-B", "2", "-A", "optionA"]
+        order1 = POMDPSolve.get_options_list(options) == ["-A", "optionA", "-B", "2"]
+        order2 = POMDPSolve.get_options_list(options) == ["-B", "2", "-A", "optionA"]
         @test order1 || order2
         options = Dict{AbstractString, Any}()
         options["verbose"] = :none
         options["A"] = "optionA"
-        @test POMDPSolve._get_options_list(options) == ["-A", "optionA"]
+        @test POMDPSolve.get_options_list(options) == ["-A", "optionA"]
         
         @test_throws ArgumentError POMDPSolve.invalid_option_error("option", :invalid, [:valid])
         @test POMDPSolve.list_options([:valid]) == "\t:valid"
