@@ -8,7 +8,7 @@ using Printf
 using Suppressor
 
 export
-	POMDPSolveSolver
+    POMDPSolveSolver,
     POMDPSolveHelp
     
 
