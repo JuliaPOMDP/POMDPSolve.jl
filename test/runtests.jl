@@ -4,7 +4,7 @@ using POMDPs
 using POMDPModels
 using POMDPFiles
 using POMDPTools
-using NativeSARSOP
+using SARSOP
 using Suppressor
 using Test
 
@@ -141,8 +141,9 @@ end
                 @test isapprox(α1, α2; atol=1e-6)
             end
             
+            local p_ss
             solver_sarsop = SARSOPSolver()
-            p_ss = solve(solver_sarsop, pomdp)
+            @suppress p_ss = solve(solver_sarsop, pomdp)
             
             v_ip = value(p2, initialstate(pomdp))
             v_ss = value(p_ss, initialstate(pomdp))
@@ -168,7 +169,8 @@ end
             print("Testing BabyPOMDP...")
             pomdp = BabyPOMDP()
             solver_sarsop = SARSOPSolver()
-            policy_sarsop = solve(solver_sarsop, pomdp)
+            local policy_sarsop
+            @suppress policy_sarsop = solve(solver_sarsop, pomdp)
             v_sarsop = value(policy_sarsop, initialstate(pomdp))
             
             solver_ip = POMDPSolveSolver(; verbose=:none)

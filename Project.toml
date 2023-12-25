@@ -20,9 +20,9 @@ Suppressor = "0.2"
 julia = "1.6"
 
 [extras]
-NativeSARSOP = "a07c76ea-660d-4c9a-8028-2e6dbd212cb8"
+SARSOP = "cef570c6-3a94-5604-96b7-1a5e143043f2"
 POMDPModels = "355abbd5-f08e-5560-ac9e-8b5f2592a0ca"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["POMDPModels", "NativeSARSOP", "Test"]
+test = ["POMDPModels", "SARSOP", "Test"]

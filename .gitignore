@@ -4,3 +4,5 @@
 .vscode
 Manifest.toml
 docs/build/
+test/*.pomdpx
+test/*.out
