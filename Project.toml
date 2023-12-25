@@ -5,7 +5,7 @@ version = "0.2.3"
 
 [deps]
 POMDPFiles = "9cf5b727-2e06-5671-8c87-8c6b0f729d5d"
-POMDPSolve_jll = "7dc2201c-deb4-56f8-b3a0-2ab29a2c732a" # Need to update after registered
+POMDPSolve_jll = "7dc2201c-deb4-56f8-b3a0-2ab29a2c732a"
 POMDPTools = "7588e00f-9cae-40de-98dc-e0c70c48cdd7"
 POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
@@ -13,7 +13,7 @@ Suppressor = "fd094767-a336-5f1f-9728-57cf17d0bbfb"
 
 [compat]
 POMDPFiles = "0.2"
-# Add compat for POMDPSolve_jll once registered
+POMDPSolve_jll = "5.4.1"
 POMDPTools = "0.1"
 POMDPs = "0.9"
 Suppressor = "0.2"
