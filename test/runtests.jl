@@ -30,7 +30,9 @@ using Test
     @testset "Constructor" begin
         println("grid method and memory_limit warnings are expected")
         
-        @test_warn "memory_limit has not been" POMDPSolveSolver(; memory_limit=1)
+        @test_logs (:warn, """memory_limit has not been tested successfully using the jll package. Use at your own risk.
+        Recommend using `time_limit` and/or `horizon` options instead.
+        """) POMDPSolveSolver(; memory_limit=1)
         @test_throws AssertionError POMDPSolveSolver(; discount = 1.1)
         @test_throws AssertionError POMDPSolveSolver(; discount = -0.1)
         @test_throws ArgumentError POMDPSolveSolver(; stop_criteria = :invalid)
@@ -53,7 +55,7 @@ using Test
         @test_throws ArgumentError POMDPSolveSolver(; verbose = :invalid)
 
         @test_throws ArgumentError POMDPSolveSolver(; method = :mcgs)
-        @test_warn "The grid method requires a .belief" POMDPSolveSolver(; method = :grid)
+        @test_logs (:warn, "The grid method requires a .belief file to be generated and this process is not currently automated in POMDPSolve.jl or POMDPFiles.jl.") POMDPSolveSolver(; method = :grid)
         
         solver = POMDPSolveSolver(;
             stdout = "out.txt",
