@@ -105,6 +105,9 @@ using Test
         @test solver.options["horizon"] == 10
         @test solver.options["enum_purge"] == :epsilon_prune
         
+        output = @capture_out POMDPSolveHelp()
+        @test occursin("-stdout <string>", output)
+        @test occursin("-max_soln_size <double>", output)
     end
     
     pomdp = TigerPOMDP()
