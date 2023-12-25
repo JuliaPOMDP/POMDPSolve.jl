@@ -1,4 +1,5 @@
 using POMDPSolve
+using POMDPs
 using Documenter
 
 makedocs(;
@@ -7,12 +8,13 @@ makedocs(;
     format=Documenter.HTML(),
     pages=[
         "Home" => "index.md",
-        "API Reference" => "reference.md",
+        "API Reference" => "api.md",
     ],
+    checkdocs = :none,
 )
 
 deploydocs(;
     repo="github.com/JuliaPOMDP/POMDPSolve.jl.git",
     devbranch = "master",
-    devurl = "latest",
+    versions = ["stable" => "v^", "v#.#"]
 )
