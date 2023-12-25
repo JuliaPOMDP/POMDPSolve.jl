@@ -1,3 +1,4 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 POMDPSolve = "a575d7f4-a5df-53f5-8ba4-9d691c1ba8ff"
+POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
