@@ -1,3 +1,8 @@
+"""
+    POMDPSolveSolver
+   
+Type that holds the options for the `pomdpsolve` program. The options correspond to command-line options for the `pomdp-solve` program.
+"""
 mutable struct POMDPSolveSolver <: Solver
 	options::Dict{AbstractString, Any}
 end
@@ -611,7 +616,7 @@ function POMDPs.solve(solver::POMDPSolveSolver, pomdp::POMDP)
 
     run_cmd = `$(pomdpsolve()) -pomdp $(pomdp_filename) -o $(fileprefix)`
     if !isempty(solver.options)
-        options_list = _get_options_list(solver.options)
+        options_list = get_options_list(solver.options)
         run_cmd = `$(run_cmd) $options_list`
     end
     

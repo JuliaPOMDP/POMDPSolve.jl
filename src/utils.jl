@@ -1,5 +1,9 @@
-# returns the list of solver command-line options
-function _get_options_list(options::Dict{AbstractString,Any})
+"""
+    get_options_list(options::Dict{AbstractString,Any})
+    
+Takes a dictionary of options and returns a list of strings of the form "-option value".
+"""
+function get_options_list(options::Dict{AbstractString,Any})
     vec_len = 2 * length(options)
     if "verbose" in keys(options) && options["verbose"] == :none
         vec_len -= 2
