@@ -1,14 +1,16 @@
 module POMDPSolve
 
+using POMDPSolve_jll
 using POMDPs
+using POMDPTools
 using POMDPFiles
 using Printf
-using BeliefUpdaters
-using POMDPPolicies
-using POMDPModelTools
+using Suppressor
 
 export
-	POMDPSolveSolver
+    POMDPSolveSolver,
+    POMDPSolveHelp
+    
 
 include("constants.jl")
 include("utils.jl")
