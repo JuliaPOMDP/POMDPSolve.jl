@@ -14,14 +14,14 @@ Suppressor = "fd094767-a336-5f1f-9728-57cf17d0bbfb"
 [compat]
 POMDPFiles = "0.2"
 POMDPSolve_jll = "5.4.1"
-POMDPTools = "0.1"
+POMDPTools = "0.1, 1"
 POMDPs = "0.9"
 Suppressor = "0.2"
 julia = "1.6"
 
 [extras]
-SARSOP = "cef570c6-3a94-5604-96b7-1a5e143043f2"
 POMDPModels = "355abbd5-f08e-5560-ac9e-8b5f2592a0ca"
+SARSOP = "cef570c6-3a94-5604-96b7-1a5e143043f2"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
