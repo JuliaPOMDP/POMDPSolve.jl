@@ -599,6 +599,34 @@ Solves the given `pomdp` using the `pomdpsolve` program and`AlphaVectorPolicy`. 
 depends on translating the POMDP to the `.pomdp` file format. Please reference POMDPFiles.jl
 for any issues with the translation.
 """
+POMDPLinter.@POMDP_require solve(solver::POMDPSolveSolver, pomdp::POMDP) begin
+    P = typeof(pomdp)
+    S = statetype(P)
+    A = actiontype(P)
+    O = obstype(P)
+    @req discount(::P)
+    @subreq ordered_states(pomdp)
+    @subreq ordered_actions(pomdp)
+    @subreq ordered_observations(pomdp)
+    @req transition(::P,::S,::A)
+    @req reward(::P,::S,::A,::S,::O)
+    @req stateindex(::P,::S)
+    @req obsindex(::P,::O)
+    @req observation(::P,::A,::S)
+    @req actionindex(::P, ::A)
+    as = actions(pomdp)
+    ss = states(pomdp)
+    a = first(as)
+    s = first(ss)
+    dist = transition(pomdp, s, a)
+    D = typeof(dist)
+    @req support(::D)
+    @req pdf(::D,::S)
+    odist = observation(pomdp, a, s)
+    OD = typeof(odist)
+    @req pdf(::OD,::O)
+end
+
 function POMDPs.solve(solver::POMDPSolveSolver, pomdp::POMDP)
     # Check for verbose option of :none
     verbose_override = false

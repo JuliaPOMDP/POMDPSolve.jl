@@ -4,6 +4,7 @@ using POMDPs
 using POMDPModels
 using POMDPFiles
 using POMDPTools
+using POMDPLinter
 using SARSOP
 using Suppressor
 using Test
@@ -121,6 +122,14 @@ using Test
     end
     output = @capture_out test_solver(solver, pomdp)
     @test output == ""
+end
+
+@testset "Requirements" begin
+    # The requirements of POMDPSolveSolver are declared with @POMDP_require;
+    # TigerPOMDP implements all of them
+    reqs = POMDPLinter.get_requirements(POMDPs.solve, (POMDPSolveSolver(), TigerPOMDP()))
+    @test POMDPLinter.check_requirements(reqs)
+    POMDPLinter.@show_requirements solve(POMDPSolveSolver(), TigerPOMDP())
 end
 
 @testset "Solver jll Test" begin

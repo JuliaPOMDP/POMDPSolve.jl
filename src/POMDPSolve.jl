@@ -4,6 +4,7 @@ using POMDPSolve_jll
 using POMDPs
 using POMDPTools
 using POMDPFiles
+using POMDPLinter
 using Printf
 using Suppressor
 
